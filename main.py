@@ -3,11 +3,12 @@ from keep_alive import keep_alive
 from discord.ext import commands
 
 bot = commands.Bot(
-	command_prefix="!",  # Change to desired prefix
+	command_prefix=".",  # Change to desired prefix
 	case_insensitive=True  # Commands aren't case-sensitive
 )
 
-bot.author_id = 487258918465306634  # Change to your discord id!!!
+bot.author_id = os.environ['AUTHOR_ID']
+
 
 @bot.event 
 async def on_ready():  # When the bot is ready
@@ -16,7 +17,8 @@ async def on_ready():  # When the bot is ready
 
 
 extensions = [
-	'cogs.cog_example'  # Same name as it would be if you were importing it
+	'cogs.cog_example',
+  'cogs.cog_dice'
 ]
 
 if __name__ == '__main__':  # Ensures this is the file being ran
