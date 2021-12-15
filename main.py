@@ -18,7 +18,8 @@ async def on_ready():  # When the bot is ready
 
 extensions = [
 	'cogs.cog_example',
-  'cogs.cog_dice'
+  'cogs.cog_dice',
+  'cogs.cog_chars'
 ]
 
 if __name__ == '__main__':  # Ensures this is the file being ran
