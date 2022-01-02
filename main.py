@@ -3,7 +3,7 @@ from keep_alive import keep_alive
 from discord.ext import commands
 
 bot = commands.Bot(
-	command_prefix=".",  # Change to desired prefix
+	command_prefix="!",  # Change to desired prefix
 	case_insensitive=True  # Commands aren't case-sensitive
 )
 
