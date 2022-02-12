@@ -1,0 +1,23 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.pure-menu {
+  background: #001B2E;
+  padding: 0.5em;
+}
+
+.pure-menu-heading, h3 {
+  color: #FF8811;
+}
+
+main {
+  background: #294C60;
+  color: #D6D6B1;
+  height: 100%;
+  padding: 3em 1em;
+}
