@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - DungeonWorld Dice Bot</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+<nav class="header">
+  <div class="pure-menu pure-menu-horizontal pure-menu-fixed">
+    <a class="pure-menu-heading" href="">Dungeon World Dice Bot</a>
+  </div>
+</nav>
+
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>

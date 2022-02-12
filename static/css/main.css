@@ -4,6 +4,7 @@ html {
 
 body {
   height: 100%;
+  background: #294C60;
 }
 
 .pure-menu {
@@ -18,6 +19,5 @@ body {
 main {
   background: #294C60;
   color: #D6D6B1;
-  height: 100%;
   padding: 3em 1em;
 }
