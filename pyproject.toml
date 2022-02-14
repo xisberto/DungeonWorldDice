@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "discordpy-bot-template-with-commands-extension"
+name = "pbta-discord-bot"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Dice rolling and Character Sheet for PbtA RPGs"
+authors = ["humberto Fraga <xisberto@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 "discord.py" = "^1.3.4"
 Flask = "^2.0.2"
 replit = "^3.2.4"
+requests-oauthlib = "^1.3.1"
 
 [tool.poetry.dev-dependencies]
 

@@ -7,8 +7,9 @@ body {
   background: #294C60;
 }
 
-.pure-menu {
+nav .pure-menu {
   background: #001B2E;
+  color: #FFFFFF;
   padding: 0.5em;
 }
 

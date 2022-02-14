@@ -1,5 +1,5 @@
 import os
-from keep_alive import keep_alive
+from frontend import frontend
 from discord.ext import commands
 
 bot = commands.Bot(
@@ -25,6 +25,6 @@ if __name__ == '__main__':  # Ensures this is the file being ran
 	for extension in extensions:
 		bot.load_extension(extension)  # Loades every extension.
 
-keep_alive()  # Starts a webserver to be pinged.
+frontend()
 token = os.environ.get("DISCORD_BOT_SECRET") 
 bot.run(token)  # Starts the bot
