@@ -17,8 +17,31 @@ nav .pure-menu {
   color: #FF8811;
 }
 
+.pure-menu-link:hover, .pure-menu-link:focus,
+.pure-menu-link.selected:hover, .pure-menu-link.selected:focus {
+  background-color: #407696;
+  color: #FFFFFF;
+}
+
+.pure-menu-link.selected {
+  background-color: #386884;
+  color: #FF8811;
+}
+
 main {
-  background: #294C60;
   color: #D6D6B1;
-  padding: 3em 1em;
+  padding-top: 3em;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+}
+
+.guilds-menu {
+  background: #001B2E;
+  margin-top: 1em;
+  height: 100%;
+}
+
+#guild-details {
+  padding-left: 1em;
 }

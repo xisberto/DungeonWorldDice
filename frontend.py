@@ -74,13 +74,15 @@ def callback():
   session['oauth2_token'] = token
   return redirect(url_for('.dashboard'))
 
-@app.route('/dashboard')
-def dashboard():
+@app.route('/dashboard/', defaults={'id':None})
+@app.route('/dashboard/<id>')
+def dashboard(id=None):
   discord = make_session(token=session.get('oauth2_token'))
-  user = discord.get(API_BASE_URL + '/users/@me').json()
-  guilds = discord.get(API_BASE_URL + '/users/@me/guilds').json()
-  g.user = user
-  g.guilds = guilds
+  g.user = discord.get(API_BASE_URL + '/users/@me').json()
+  g.guilds = discord.get(API_BASE_URL + '/users/@me/guilds').json()
+  if id is not None:
+    # Loads the specified guild
+    g.guild = id
   return render_template('dashboard.html')
 
 def run():
