@@ -5,8 +5,7 @@ from discord.ext import commands
 from frontend import frontend
 
 bot = commands.Bot(
-    command_prefix="!",  # Change to desired prefix
-    case_insensitive=True  # Commands aren't case-sensitive
+    command_prefix="."
 )
 
 bot.author_id = os.environ['AUTHOR_ID']
