@@ -1,6 +1,5 @@
 from replit import db
 
-
 attrs = ['name', 'str', 'con', 'dex', 'int', 'wis', 'cha']
 
 empty = {
@@ -14,17 +13,20 @@ empty = {
     'cha': '0'
 }
 
+
 def load(player: str = None):
-  if player is None:
-    return empty
-  if player not in db.keys():
-    new = empty
-    new['player'] = player
-    db[player] = new
-  return db[player]
+    if player is None:
+        return empty
+    if player not in db.keys():
+        new = empty
+        new['player'] = player
+        db[player] = new
+    return db[player]
+
 
 def save(char):
-  db[char['player']] = char
+    db[char['player']] = char
+
 
 def delete(id: str):
-  del db[id]
+    del db[id]

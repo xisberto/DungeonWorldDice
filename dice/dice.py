@@ -19,4 +19,4 @@ def summarize(dice, mod: str) -> str:
         siz = int(d[0])
         qtd = int(d[1])
         results.extend([roll_d(qtd) for _ in range(siz)])
-    return f"{results} {str(mod or '')}: {sum(results)+i_mod}"
+    return f"{results} {str(mod or '')}: {sum(results) + i_mod}"
