@@ -1,11 +1,17 @@
 import os
 
+from discord import Intents
 from discord.ext import commands
 
 from frontend import frontend
 
+intents = Intents.default()
+intents.typing = False
+intents.presences = False
+
 bot = commands.Bot(
-    command_prefix="."
+    command_prefix=".",
+    intents=intents
 )
 
 bot.author_id = os.environ['AUTHOR_ID']
