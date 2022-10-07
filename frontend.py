@@ -86,13 +86,16 @@ def callback():
 @app.route('/dashboard/<guild_id>')
 @app.route('/dashboard/<guild_id>/<channel_id>')
 def dashboard(guild_id=None, channel_id=None):
+    print(f'Dashboard for guild {guild_id} channel {channel_id}')
     discord = make_session(token=session.get('oauth2_token'))
     g.user = discord.get(API_BASE_URL + '/users/@me').json()
     g.guilds = discord.get(API_BASE_URL + '/users/@me/guilds').json()
     if guild_id is not None:
         # Loads the specified guild
-        g.guild = guild_id
-        g.channels = discord.get(API_BASE_URL + f'/users/@me/guilds/{guild_id}/channels')
+        g.guild_id = guild_id
+        g.guild = discord.get(API_BASE_URL + f'/guilds/{guild_id}').json()
+        g.channels = discord.get(API_BASE_URL + f'/guilds/{guild_id}/channels').json()
+        print(f'guild has {len(g.channels)} channels')
     return render_template('dashboard.html')
 
 
