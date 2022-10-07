@@ -42,5 +42,5 @@ class Main:
 
 if __name__ == '__main__':  # Ensures this is the file being ran
     main = Main()
-    # frontend()
+    frontend()
     main.run()
