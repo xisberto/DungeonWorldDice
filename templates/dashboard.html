@@ -4,7 +4,7 @@
 
 {% block content %}
 <main class="pure-g">
-    <div class="pure-u-1-4 guilds-menu pure-menu">
+    <div class="pure-u-1-4 pure-menu" id="guilds-menu">
         <span class="pure-menu-heading">Servers</span>
         <ul class="pure-menu-list">
             {% for guild in g.guilds %}
@@ -20,7 +20,18 @@
         {% if not g.guild %}
         <span>Select a server on the menu</span>
         {% else %}
-        {{ g.guild }}
+        <p>{{ g.name }}</p>
+        <div class="pure-menu" id="channels-menu">
+            <span class="pure-menu-heading">Channels</span>
+            <ul class="pure-menu-list">
+                {% for channel in g.guild.channels %}
+                <li class="pure-menu-item">
+                    <a href="{{ url_for('.dashboard', id=guild.id, ch_id=channel.id) }}"
+                        class="pure-menu-link{% if g.channel==channel.id %} selected {% endif %}">{{ channel.name }}</a>
+                </li>
+                {% enfor %}
+            </ul>
+        </div>
         {% endif %}
     </div>
 </main>
