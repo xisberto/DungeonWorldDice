@@ -9,7 +9,7 @@
         <ul class="pure-menu-list">
             {% for guild in g.guilds %}
             <li class="pure-menu-item">
-                <a href="{{ url_for('.dashboard', id=guild.id) }}"
+                <a href="{{ url_for('.dashboard', guild_id=guild.id) }}"
                    class="pure-menu-link{% if g.guild==guild.id %} selected{% endif %}">{{ guild.name }}</a>
             </li>
             {% endfor %}
@@ -26,7 +26,7 @@
             <ul class="pure-menu-list">
                 {% for channel in g.guild.channels %}
                 <li class="pure-menu-item">
-                    <a href="{{ url_for('.dashboard', id=guild.id, ch_id=channel.id) }}"
+                    <a href="{{ url_for('.dashboard', guild_id=guild.id, channel_id=channel.id) }}"
                         class="pure-menu-link{% if g.channel==channel.id %} selected {% endif %}">{{ channel.name }}</a>
                 </li>
                 {% endfor %}

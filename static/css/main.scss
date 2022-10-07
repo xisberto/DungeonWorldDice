@@ -30,14 +30,16 @@ nav .pure-menu {
   color: $secondary;
 }
 
-.pure-menu-link:hover, .pure-menu-link:focus,
-.pure-menu-link.selected:hover, .pure-menu-link.selected:focus {
-  background-color: $primary;
-}
+.pure-menu-link {
+  color: $menu_fg;
 
-.pure-menu-link.selected {
-  background-color: $primary;
-  color: $secondary;
+  &:hover, &:focus {
+    color: $menu_fg;
+  }
+
+  .selected {
+    background: $primary;
+  }
 }
 
 main {
