@@ -13,6 +13,10 @@ nav .pure-menu {
   padding: 0.5em;
 }
 
+.home-menu ul {
+  float: right;
+}
+
 .pure-menu-heading, h3 {
   color: #FF8811;
 }
