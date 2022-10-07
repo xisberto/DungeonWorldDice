@@ -4,9 +4,9 @@ import os
 from discord import Intents
 from discord.ext import commands
 from discord.ext.commands import ExtensionFailed
+from scss import Compiler
 
 from frontend import frontend
-from cogs import cog_chars
 
 
 class Main:
@@ -40,7 +40,14 @@ class Main:
             print(ef)
 
 
-if __name__ == '__main__':  # Ensures this is the file being ran
+def compile_scss():
+    source = 'static/css/main.scss'
+    destination = open('static/css/main.css', 'w')
+    destination.write(Compiler(output_style='compressed').compile(source))
+
+
+if __name__ == '__main__':
+    compile_scss()
     main = Main()
     frontend()
     main.run()
