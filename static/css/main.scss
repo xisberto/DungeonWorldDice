@@ -35,6 +35,7 @@ nav .pure-menu {
 
   &:hover, &:focus {
     color: $menu_fg;
+    background: $primary;
   }
 
   .selected {
