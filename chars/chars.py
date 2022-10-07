@@ -28,5 +28,5 @@ def save(char):
     db[char['player']] = char
 
 
-def delete(id: str):
-    del db[id]
+def delete(char_id: str):
+    del db[char_id]

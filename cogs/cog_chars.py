@@ -25,6 +25,7 @@ class CharCommands(commands.Cog, name="Char Commands"):
     @commands.command("me")
     async def whoami(self, ctx, *, member: discord.Member = None):
         char_id = self.get_id(ctx)
+        print(f"Got whoami for {char_id}")
         char = chars.load(char_id)
         await ctx.send(embed=self.embed_char(char))
 
@@ -94,5 +95,5 @@ class CharCommands(commands.Cog, name="Char Commands"):
         return response
 
 
-def setup(bot):
-    bot.add_cog(CharCommands(bot))
+async def setup(bot):
+    await bot.add_cog(CharCommands(bot))
