@@ -29,7 +29,7 @@
                     <a href="{{ url_for('.dashboard', id=guild.id, ch_id=channel.id) }}"
                         class="pure-menu-link{% if g.channel==channel.id %} selected {% endif %}">{{ channel.name }}</a>
                 </li>
-                {% enfor %}
+                {% endfor %}
             </ul>
         </div>
         {% endif %}
