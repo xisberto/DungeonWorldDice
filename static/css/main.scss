@@ -1,7 +1,8 @@
 // Colors
 $background: #010038;
 $foreground: #F1E9DB;
-$menus: #293A80;
+$menu_bg: #293A80;
+$menu_fg: #CCCCCC;
 $primary: #537EC5;
 $secondary: #F39422;
 
@@ -16,7 +17,8 @@ body {
 }
 
 nav .pure-menu {
-  background: $menus;
+  background: $menu_bg;
+  color: $menu_fg;
   padding: 0.5em;
 }
 
@@ -46,7 +48,8 @@ main {
 }
 
 .guilds-menu {
-  background: $menus;
+  background: $menu_bg;
+  color: $menu_fg;
   margin-top: 1em;
   height: 100%;
 }
