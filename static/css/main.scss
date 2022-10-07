@@ -1,10 +1,9 @@
 // Colors
-$background: #114B5F;
-$primary: #BAC1B8;
-$action: #58A4B0;
-$selected: #D64933;
-$success: #698F3F;
-$error: #FF4242;
+$background: #1C0221;
+$foreground: #F4F2F3;
+$menus: #114B5F;
+$primary: #61988E;
+$secondary: #E6AF2E;
 
 html {
   height: 100%;
@@ -13,11 +12,11 @@ html {
 body {
   height: 100%;
   background: $background;
+  color: $foreground;
 }
 
 nav .pure-menu {
   background: $primary;
-  color: #FFFFFF;
   padding: 0.5em;
 }
 
@@ -26,22 +25,20 @@ nav .pure-menu {
 }
 
 .pure-menu-heading, h3 {
-  color: $action;
+  color: $secondary;
 }
 
 .pure-menu-link:hover, .pure-menu-link:focus,
 .pure-menu-link.selected:hover, .pure-menu-link.selected:focus {
-  background-color: $background;
-  color: #FFFFFF;
+  background-color: $primary;
 }
 
 .pure-menu-link.selected {
-  background-color: $action;
+  background-color: $primary;
   color: $selected;
 }
 
 main {
-  color: #FFFFFF;
   padding-top: 3em;
   width: 80%;
   margin: auto;
@@ -49,7 +46,7 @@ main {
 }
 
 .guilds-menu {
-  background: $primary;
+  background: $menus;
   margin-top: 1em;
   height: 100%;
 }
