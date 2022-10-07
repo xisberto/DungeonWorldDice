@@ -83,6 +83,7 @@ def callback():
 
 
 @app.route('/dashboard/', defaults={'guild_id': None, 'channel_id': None})
+@app.route('/dashboard/<guild_id>')
 @app.route('/dashboard/<guild_id>/<channel_id>')
 def dashboard(guild_id=None, channel_id=None):
     discord = make_session(token=session.get('oauth2_token'))
