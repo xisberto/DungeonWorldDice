@@ -37,7 +37,13 @@ class Main(commands.Bot):
         for guild in self.guilds:
             db['guilds'][guild.id] = {
                 'name': guild.name,
-                'channels': [ch.id for ch in guild.channels],
+                'channels': [
+                    {
+                        'id': ch.id,
+                        'name': ch.name,
+                        'type': ch.type
+                    }
+                    for ch in guild.channels],
                 'members': [mem.id for mem in guild.members]
             }
         self.logger.info(f"Bot is member of {len(db['guilds'])} guilds")

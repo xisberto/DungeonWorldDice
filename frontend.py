@@ -105,7 +105,6 @@ def dashboard(guild_id=None, channel_id=None):
     if guild_id is not None:
         # Loads the specified guild
         channels = db['guilds'][guild_id]['channels']
-        logger.info(f'guild has {len(channels)} channels')
     return render_template('dashboard.html', users=user, guilds=guilds, guild_id=guild_id, channels=channels)
 
 
