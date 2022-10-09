@@ -40,6 +40,7 @@ class Main(commands.Bot):
                 'channels': [ch.id for ch in guild.channels],
                 'members': [mem.id for mem in guild.members]
             }
+        self.logger.info(f"Bot is member of {len(db['guilds'])} guilds")
 
 
 def compile_scss():
