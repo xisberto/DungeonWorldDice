@@ -24,10 +24,12 @@
             <span class="pure-menu-heading">Channels</span>
             <ul class="pure-menu-list">
                 {% for channel in channels %}
+                {% if channel.type == 'text' %}
                 <li class="pure-menu-item">
-                    <a href="{{ url_for('.dashboard', guild_id=guild_id, channel_id=channel_id) }}"
+                    <a href="{{ url_for('.dashboard', guild_id=guild_id, channel_id=channel.id) }}"
                         class="pure-menu-link">{{ channel.name }}</a>
                 </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
