@@ -41,7 +41,7 @@ class Main(commands.Bot):
                     {
                         'id': ch.id,
                         'name': ch.name,
-                        'type': ch.type
+                        'type': ch.type.name
                     }
                     for ch in guild.channels],
                 'members': [mem.id for mem in guild.members]
