@@ -1,9 +1,11 @@
 import asyncio
+import logging
 import os
 
-from discord import Intents
+from discord import Intents, utils
 from discord.ext import commands
 from discord.ext.commands import ExtensionFailed
+from replit import db
 from scss import Compiler
 
 from frontend import frontend
@@ -11,6 +13,11 @@ from frontend import frontend
 
 class Main:
     def __init__(self):
+        log_handler = logging.StreamHandler()
+        utils.setup_logging(handler=log_handler)
+        self.logger = logging.getLogger("main")
+        self.logger.info("Starting main class")
+
         intents = Intents.default()
         intents.message_content = True
 
@@ -31,7 +38,15 @@ class Main:
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("I'm in")
+        self.logger.info("Bot Ready")
+        if 'guilds' not in db.keys():
+            db['guilds'] = {}
+        for guild in self.bot.guilds:
+            db['guilds'][guild.id] = {
+                'name': guild.name,
+                'channels': [ch.id for ch in guild.channels],
+                'members': [mem.id for mem in guild.members]
+            }
 
     async def load_extensions(self, extension):
         try:
