@@ -3,7 +3,7 @@ from replit import db
 attrs = ['name', 'str', 'con', 'dex', 'int', 'wis', 'cha']
 
 empty = {
-    'player': '',
+    'id': '',
     'name': '',
     'str': '0',
     'con': '0',
@@ -14,19 +14,21 @@ empty = {
 }
 
 
-def load(player: str = None):
-    if player is None:
+def load(char_id: str = None):
+    if char_id is None:
         return empty
-    if player not in db.keys():
+    if 'chars' not in db.keys():
+        db['chars'] = []
+    if char_id not in db['chars'].keys():
         new = empty
-        new['player'] = player
-        db[player] = new
-    return db[player]
+        new['id'] = char_id
+        db['chars'][char_id] = new
+    return db[char_id]
 
 
 def save(char):
-    db[char['player']] = char
+    db['chars'][char['id']] = char
 
 
 def delete(char_id: str):
-    del db[char_id]
+    del db['chars'][char_id]

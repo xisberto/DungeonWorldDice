@@ -105,6 +105,11 @@ def dashboard(guild_id=None, channel_id=None):
     if guild_id is not None:
         # Loads the specified guild
         channels = db['guilds'][guild_id]['channels']
+
+    if channel_id is not None:
+        # TODO look for user's char on this channel
+        pass
+
     return render_template('dashboard.html', users=user, guilds=guilds, guild_id=guild_id, channels=channels)
 
 

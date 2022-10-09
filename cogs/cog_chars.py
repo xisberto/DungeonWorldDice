@@ -70,7 +70,7 @@ class CharCommands(commands.Cog, name="Char Commands"):
             print("Nothing")
 
     def get_id(self, ctx):
-        return f'{ctx.guild.id}_{ctx.author.id}'
+        return f'{ctx.channel.id}_{ctx.author.id}'
 
     def embed_char(self, char):
         char_name = " "
