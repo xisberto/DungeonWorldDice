@@ -7,7 +7,7 @@
     <div class="pure-u-1-4 pure-menu" id="guilds-menu">
         <span class="pure-menu-heading">Servers</span>
         <ul class="pure-menu-list">
-            {% for guild in g.guilds %}
+            {% for guild in guilds %}
             <li class="pure-menu-item">
                 <a href="{{ url_for('.dashboard', guild_id=guild.id) }}"
                    class="pure-menu-link{% if g.guild_id==guild.id %} selected{% endif %}">{{ guild.name }}</a>

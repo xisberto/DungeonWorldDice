@@ -10,7 +10,7 @@
         <a class="pure-menu-heading" href="">{{ app_title() }}</a>
         <ul class="pure-menu-list">
             {% if g.user %}
-            <li class="pure-menu-item">{{ g.user['username'] }}</li>
+            <li class="pure-menu-item">{{ user['username'] }}</li>
             <li class="pure-menu-item">
                 <a href="{{ url_for('logout') }}" class="pure-menu-link">Logout</a>
             </li>

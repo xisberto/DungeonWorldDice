@@ -1,8 +1,10 @@
+import logging
 import os
 import random
 from threading import Thread
 
 from flask import Flask, g, session, render_template, request, redirect, url_for
+from replit import db
 from requests_oauthlib import OAuth2Session
 
 OAUTH2_CLIENT_ID = os.environ['DISCORD_BOT_CLIENT_ID']
@@ -14,6 +16,8 @@ TOKEN_URL = API_BASE_URL + '/oauth2/token'
 
 app = Flask('')
 app.config['SECRET_KEY'] = OAUTH2_CLIENT_SECRET
+
+logger = logging.getLogger("frontend")
 
 
 def token_updater(token):
@@ -86,17 +90,24 @@ def callback():
 @app.route('/dashboard/<guild_id>')
 @app.route('/dashboard/<guild_id>/<channel_id>')
 def dashboard(guild_id=None, channel_id=None):
-    print(f'Dashboard for guild {guild_id} channel {channel_id}')
+    logger.info(f'Dashboard for guild {guild_id} channel {channel_id}')
     discord = make_session(token=session.get('oauth2_token'))
-    g.user = discord.get(API_BASE_URL + '/users/@me').json()
-    g.guilds = discord.get(API_BASE_URL + '/users/@me/guilds').json()
+    user = discord.get(API_BASE_URL + '/users/@me').json()
+    user_guilds = discord.get(API_BASE_URL + '/users/@me/guilds').json()
+    bot_guilds = db['guilds']
+    guilds = []
+    for u_guild in user_guilds:
+        logger.info(u_guild.id)
+        if u_guild.id in bot_guilds.keys():
+            guilds.append(u_guild)
+
     if guild_id is not None:
         # Loads the specified guild
         g.guild_id = guild_id
         g.guild = discord.get(API_BASE_URL + f'/guilds/{guild_id}').json()
         g.channels = discord.get(API_BASE_URL + f'/guilds/{guild_id}/channels').json()
-        print(f'guild has {len(g.channels)} channels')
-    return render_template('dashboard.html')
+        logger.info(f'guild has {len(g.channels)} channels')
+    return render_template('dashboard.html', users=user, guilds=guilds)
 
 
 def run():
