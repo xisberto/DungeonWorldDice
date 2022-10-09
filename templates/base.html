@@ -9,7 +9,7 @@
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="">{{ app_title() }}</a>
         <ul class="pure-menu-list">
-            {% if g.user %}
+            {% if user %}
             <li class="pure-menu-item">{{ user['username'] }}</li>
             <li class="pure-menu-item">
                 <a href="{{ url_for('logout') }}" class="pure-menu-link">Logout</a>

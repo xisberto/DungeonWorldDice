@@ -97,17 +97,16 @@ def dashboard(guild_id=None, channel_id=None):
     bot_guilds = db['guilds']
     guilds = []
     for u_guild in user_guilds:
-        logger.info(u_guild.id)
-        if u_guild.id in bot_guilds.keys():
+        if u_guild['id'] in bot_guilds.keys():
+            logger.info(u_guild['id'])
             guilds.append(u_guild)
 
+    channels = []
     if guild_id is not None:
         # Loads the specified guild
-        g.guild_id = guild_id
-        g.guild = discord.get(API_BASE_URL + f'/guilds/{guild_id}').json()
-        g.channels = discord.get(API_BASE_URL + f'/guilds/{guild_id}/channels').json()
-        logger.info(f'guild has {len(g.channels)} channels')
-    return render_template('dashboard.html', users=user, guilds=guilds)
+        channels = db['guilds'][guild_id]['channels']
+        logger.info(f'guild has {len(channels)} channels')
+    return render_template('dashboard.html', users=user, guilds=guilds, guild_id=guild_id, channels=channels)
 
 
 def run():
